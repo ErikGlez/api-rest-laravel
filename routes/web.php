@@ -1,5 +1,7 @@
 <?php
 
+// Cargando clases
+use App\Http\Middleware\ApiAuthMiddleware;
 //RUTAS DE PRUEBA
 
 Route::get('/welcome', function () {
@@ -44,3 +46,4 @@ Route::get('/testOrm','PruebasController@testOrm');
     Route::post('api/register', 'UserController@register');
     Route::post('api/login', 'UserController@login');
     Route::put('api/user/update', 'UserController@update');
+    Route::post('api/user/upload' ,'UserController@upload')->middleware(ApiAuthMiddleware::class);
