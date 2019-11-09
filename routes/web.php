@@ -37,10 +37,11 @@ Route::get('/testOrm','PruebasController@testOrm');
      api restful -> get post put y delete.
 
     */
+
     //Rutas de prueba
-    Route::get('/usuario/pruebas', 'UserController@pruebas');
-    Route::get('/post/pruebas', 'PostController@pruebas');
-    Route::get('/categoria/pruebas', 'CategoryController@pruebas');
+    //Route::get('/usuario/pruebas', 'UserController@pruebas');
+    // Route::get('/post/pruebas', 'PostController@pruebas');
+    //Route::get('/categoria/pruebas', 'CategoryController@pruebas');
 
     // Rutas del controlador de usuarios
     Route::post('/api/register', 'UserController@register');
@@ -49,4 +50,9 @@ Route::get('/testOrm','PruebasController@testOrm');
     Route::post('/api/user/upload' ,'UserController@upload')->middleware(ApiAuthMiddleware::class);
     Route::get('/api/user/avatar/{filename}', 'UserController@getImage');
     Route::get('/api/user/detail/{id}', 'UserController@detail');
+
+    // Rutas del controlador de categorias
+    Route::resource('/api/category', 'CategoryController');
+
+
 
