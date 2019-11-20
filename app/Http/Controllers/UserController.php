@@ -111,7 +111,7 @@ class UserController extends Controller
             $signup = $jwtAuth->signup($params->email, $pwd);
             
             // En caso de pasarle el parametro getToken
-            if(!empty($params->getToken)){
+            if(!empty($params->gettoken)){
                 $signup = $jwtAuth->signup($params->email, $pwd, true);
             }
         }
