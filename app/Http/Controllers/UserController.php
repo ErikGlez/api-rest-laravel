@@ -162,8 +162,8 @@ class UserController extends Controller
             $user_update = User::where('id', $user->sub)->update($params_array);
             // DEvolver array con resultado
             $data = array(
-                'status' => 'success',
                 'code'   => 200,
+                'status' => 'success',
                 'user' => $user,
                 'changes' => $params_array
                 
