@@ -123,10 +123,14 @@ class UserController extends Controller
     }
 
     public function update(Request $request){
+        //Comprobar si el usuario esta identificado
+        $token = $request->header('Authorization');
+        $jwtAuth = new \JwtAuth();
+        $checkToken = $jwtAuth->checkToken($token);
 
         
 
-         // Actualizar el usuario
+         
             // Recoger los datos por post
             $json = $request->input('json', null);
             $params_array = json_decode($json, true);
@@ -136,7 +140,7 @@ class UserController extends Controller
            
 
             // Sacar usuario identificado
-            $user = $jwtAuth->checktoken($token, true);
+            $user = $jwtAuth->checkToken($token, true);
             
 
             // Validar los datos
